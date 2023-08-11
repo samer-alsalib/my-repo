@@ -1,0 +1,364 @@
+html {
+	font-size:16px;
+  --themecolor:#151515;
+}
+body {
+	margin:0;
+	background-color:rgb(250, 250, 250);
+}
+* {
+	box-sizing:border-box;
+	cursor:default;
+}
+*::selection {
+  background-color:rgb(100, 100, 200);
+}
+h1 {
+	margin:0;
+}
+p {
+	display:inline;
+}
+button {
+	cursor:pointer;
+}
+header {
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	background-color:var(--themecolor);
+	padding:.25rem .75rem;
+}
+#userinfo {
+	width:10rem;
+	background-color:;
+	border:2px solid rgb(200, 200, 50);
+	border-radius:5px;
+	padding:.2rem .5em;
+    color:white;
+    text-align:center;
+	font-size:1.1rem;
+	font-weight:bold;
+}
+#uimenu {
+	opacity:0;
+	width:10rem;
+	background-color:white;
+	border:2px dashed var(--themecolor);
+	border-top:none;
+	border-radius:0 0 10% 10%;
+	position:absolute;
+	right:.75rem;
+	box-shadow:0px 4px 1rem rgb(20, 20, 20);
+	transform:translate(0, -5%);
+	transition-property:opacity, transform;
+	transition-duration:100ms;
+	z-index:1000;
+}
+#NAME {
+	color:white;
+	font-weight:bold;
+	letter-spacing:2px;
+}
+#NAMEd {
+	display:inline-block;
+	height:100%;
+	text-align:center;
+}
+#uilist {
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	list-style-type:none;
+	padding:0;
+	height:100%;
+	color:black;
+	font-size:1.1rem;
+	font-weight:bold;
+}
+li {
+	width:100%;
+	padding:0 .5rem;
+	text-align:center;
+}
+li:hover {
+	color:white;
+	background-color:var(--themecolor);
+	cursor:pointer;
+}
+article {
+	padding:.2rem;
+}
+#content {
+	min-width:50rem;
+	border:2px groove rgb(150, 150, 150);
+	border-radius:.5rem;
+	padding:.8rem;
+	transition:opacity 400ms;
+}
+h2 {
+	text-align:center;
+}
+#productsgrid {
+	display:grid;
+	width:100%;
+	grid-template-rows:repeat(8, 1fr);
+	grid-template-columns:repeat(4, 1fr);
+	grid-gap:1rem;
+}
+.product {
+	grid-area:span 1;
+	border:2px solid gray;
+	border-radius:1rem;
+	box-shadow:0rem .25rem .25rem rgb(50, 50, 50);
+	padding-bottom:.4rem;
+	text-align:center;
+	font-weight:bold;
+	transition-property:box-shadow, transform;
+	transition-duration:200ms;
+}
+.product:hover {
+	box-shadow:0rem .5rem 1rem rgb(50, 50, 50);
+	transform:scale(1.01);
+}
+.product:nth-child(1):after {
+	content:"Samsung Galaxy A23";
+	padding:.15rem;
+	border:2px solid black;
+	border-radius:1rem;
+}
+.product:nth-child(2):after {
+	content:"Samsung Galaxy S23 Ultra";
+	padding:.15rem;
+	border:2px solid black;
+	border-radius:1rem;
+}
+.smallimgs {
+	width:100%;
+	border-radius:1rem;
+	cursor:pointer;
+}
+#productdis {
+	visibility:hidden;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	height:300px;
+	background-color/:rgb(50, 250, 50);
+    perspective:60rem;
+}
+#leftphotosarrow {
+	width:2.2rem;
+	height:2.2rem;
+	background-image:url(https://cdn.pixabay.com/photo/2016/04/07/18/57/arrow-1314461_960_720.png);
+	background-size:90%;
+	background-repeat:no-repeat;
+	background-position:center;
+	background-color:transparent;
+	border:none;
+	position:absolute;
+	left:5vw;
+	filter:invert(0);
+	transform:rotateZ(180deg);
+	transition-property:filter;
+	transition-duration:400ms;
+	z-index:100;
+}
+.productimg {
+	width:25rem;
+	transition-property:transform, box-shadow, opacity;
+	transition-duration:400ms;
+}
+#img1 {
+	position:absolute;
+	z-index:50;
+}
+#img2 {
+	position:absolute;
+	transform:translate(75%) rotateY(-80deg) scale(.8);
+  opacity:.8;
+	z-index:40;
+}
+#img3 {
+	background-color:white;
+	position:absolute;
+	transform:translate(75%) rotateY(-80deg) scale(.8);
+  opacity:.8;
+	z-index:30;
+}
+#img4 {
+	position:absolute;
+	transform:translate(75%) rotateY(-80deg) scale(.8);
+	opacity:.8;
+  z-index:20;
+}
+#img5 {
+	background-color:white;
+	position:absolute;
+	transform:translate(75%) rotateY(-80deg) scale(.8);
+	opacity:.8;
+  z-index:10;
+}
+.displayed {
+	transform:translate(0) rotateY(0) scale(0);
+	opacity:1;
+	box-shadow:0rem 1rem 2rem rgb(50, 50, 50);
+}
+[side = "leftside"] {
+	transform:translate(-75%) rotateY(80deg) scale(.8);
+	opacity:.8;
+	box-shadow:none;
+}
+[side = "rightside"] {
+	transform:translate(75%) rotateY(-80deg) scale(.8);
+	opacity:.8;
+	box-shadow:none;
+}
+#rightphotosarrow {
+	width:2.2rem;
+	height:2.2rem;
+	background-image:url(https://cdn.pixabay.com/photo/2016/04/07/18/57/arrow-1314461_960_720.png);
+	background-size:90%;
+	background-repeat:no-repeat;
+	background-position:center;
+	background-color:transparent;
+	border:none;
+	position:absolute;
+	right:5vw;
+	filter:invert(100%);
+	transition-property:filter;
+	transition-duration:400ms;
+	z-index:100;
+}
+#productdetails {
+  display:none;
+	height:800px;
+	border:2px groove rgb(150, 150, 150);
+	border-radius:.4rem;
+  opacity:0;
+  transition:opacity 400ms;
+}
+#FAQ {
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	width:50px;
+	height:50px;
+	background-color:var(--themecolor);
+	border-radius:50% 50% 50% 0;
+	position:fixed;
+	left:1.5rem;
+	bottom:1.5rem;
+	color:white;
+	font-size:1.1rem;
+	font-weight:bold;
+	transition-property:width, height, border-radius;
+	transition-duration:600ms;
+	transition-timing-function:cubic-bezier(0.25, 1, 0.5, 1);
+	z-index:1000;
+}
+#FAQtext {
+	transition:opacity 300ms;
+}
+footer {
+	display:flex;
+	align-items:center;
+	justify-content:right;
+	height:200px;
+	color:white;
+	background-color:#222222;
+	border-top:2px solid gray;
+	padding:.5rem;
+}
+#contacts {
+	display:flex;
+	align-items:center;
+	justify-content:space-evenly;
+	font-size:.75rem;
+	font-weight:bold;
+}
+.contact {
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+}
+#youtubebg {
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	width:40px;
+	height:30px;
+	background-color:rgb(255, 0, 0);
+	border-radius:20%;
+	cursor:pointer;
+	z-index:20;
+}
+#youtubeicon {
+	width:24px;
+	height:24px;
+	filter:invert(100%);
+	transition:transform 200ms;
+	cursor:pointer;
+}
+#facebookbg {
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	width:30px;
+	height:30px;
+	background-color:rgb(66, 103, 178);
+	border-radius:20%;
+	cursor:pointer;
+	z-index:20;
+}
+#facebookicon {
+	width:25px;
+	height:25px;
+	filter:invert(100%);
+	transition:transform 200ms;
+	cursor:pointer;
+}
+#twitterbg {
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	width:30px;
+	height:30px;
+	background-color:rgb(29, 161, 242);
+	border-radius:20%;
+	cursor:pointer;
+	z-index:20;
+}
+#twittericon {
+	width:25px;
+	height:25px;
+	filter:invert(100%);
+	transition:transform 200ms;
+	cursor:pointer;
+}
+#whatsappbg {
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	width:30px;
+	height:30px;
+	background-color:rgb(37, 211, 102);
+	border-radius:20%;
+	cursor:pointer;
+	z-index:20;
+}
+#whatsappicon {
+	width:22px;
+	height:22px;
+	filter:invert(100%);
+	transition:transform 200ms;
+	cursor:pointer;
+}
+.contacttext {
+	opacity:0;
+	transform:translate(0, -250%) scale(0);
+	transition-property:transform, opacity;
+	transition-duration:200ms;
+	z-index:10;
+}
